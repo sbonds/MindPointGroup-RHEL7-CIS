@@ -231,13 +231,13 @@
       - rule_1.1.1.8
       - vfat
 
-- name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp | enable and start/restart tmp.mount"
-  systemd:
-      name: tmp.mount
-      daemon_reload: yes
-      enabled: yes
-      masked: no
-      state: started
+- name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp"
+  shell: mount | grep "on /tmp "
+  args:
+    warn: false
+  register: tmp_mounted
+  changed_when: no
+  failed_when: no
   when:
       - rhel7cis_rule_1_1_2|bool
   tags:
