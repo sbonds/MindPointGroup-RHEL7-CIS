@@ -253,6 +253,7 @@
   mount:
     path: /tmp
     opts: "noatime,nosuid,noexec"
+    state: mounted
   when:
       - rhel7cis_rule_1_1_3|bool
       - rhel7cis_rule_1_1_4|bool
