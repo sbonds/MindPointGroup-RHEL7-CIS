@@ -250,10 +250,10 @@
          SCORED | 1.1.4 | PATCH | Ensure nosuid option set on /tmp partition\n
          SCORED | 1.1.5 | PATCH | Ensure noexec option set on /tmp partition\n
          | add options to existing /tmp mount in /etc/fstab"
-  mount:
-    path: /tmp
-    opts: "noatime,nosuid,noexec"
-    state: mounted
+  lineinfile:
+    path: /etc/fstab
+    regexp: '^/dev/mapper/rootvg-tmplv '
+    line: '/dev/mapper/rootvg-tmplv /tmp xfs rw,seclabel,relatime,attr2,inode64,noquota,nodev,nosuid,noexec 0 0'
   when:
       - rhel7cis_rule_1_1_3|bool
       - rhel7cis_rule_1_1_4|bool
