@@ -369,7 +369,7 @@
       - patch
       - rule_3.5.4
 
-- name: "SCORED | 3.6 | PATCH | Ensure firewalld is installed and started | CUSTOM"
+- name: "SCORED | 3.6 | PATCH | Ensure firewalld is installed and started | CUSTOM"
   yum:
       name: firewalld
       state: present
@@ -380,7 +380,7 @@
       - patch
       - rule_3.6
 
-- name: "SCORED | 3.6 | PATCH | Ensure firewalld is installed and started | CUSTOM"
+- name: "SCORED | 3.6 | PATCH | Ensure firewalld is installed and started | CUSTOM"
   service:
       name: firewalld
       state: started
